@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>Sign Up</title>
+
+</head>
+<body>
+  {% include 'pyIQ/base.html' %}
+  {% block content %}
+  <div class="container">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+      <!-- first section -->
+      <div class="row">
+        <div class="col-7">
+            <div class="content">
+                <div class="logo">
+                  <img src="{% static 'images/My project.png'%}" alt="" width='30' height='30'/>
+                </div>
+                <div class="image"></div>
+                <div class="text">
+                  Start for free & test <br/>
+                  your Python Programming Knowledge today!
+                </div>
+            </div>        
+        </div>
+
+        <div class="col-5">
+          <form method="post" action="{% url 'users:register' %}">
+            {% csrf_token %}
+            <div>
+              <label for="id_username" class=" requiredField">User Name <span class="asteriskField">*</span> </label>
+              <i class="fas fa-user"></i>
+              <input type="text" name="username" maxlength="150" autofocus class="textinput textInput"
+              required id="id_username" placeholder="Joy Shaheb"
+              />
+              <div class="error"></div>
+            </div>
+            
+            <div>
+              <input type="text" name="first_name" class="textinput textInput" 
+              placeholder="First name" maxlength="50" required id="id_first_name"
+              />
+              <div class="error"></div>
+            </div>
+
+            <div>
+              <input type="text" name="last_name" class="textinput textInput"
+               placeholder="Last name" maxlength="50" required id="id_last_name"/>
+              <div class="error"></div>
+            </div>
+            
+            <div>
+              <label for="id_email" class=" requiredField">Email <span class="asteriskField">*</span> </label>
+              <i class="far fa-envelope"></i>
+              <input type="text" name="email" class="textinput textInput" placeholder="Email address" maxlength="50" required id="id_email" placeholder="example@gmail.com"/>
+              <div class="error"></div>
+              <div id="div_id_password1" class="form-group"> <label for="id_password1" class=" requiredField">
+            </div>
+    
+            <div>
+              <label for="id_password1" class=" requiredField">Password <span class="asteriskField">*</span> </label>
+              <i class="fas fa-lock"></i>
+              <input type="password" name="password1" autocomplete="new-password" class="textinput textInput"
+              required id="id_password1"/>
+              <small id="hint_id_password1" class="form-text text-muted">
+                <ul>
+                  <li>Your password can’t be too similar to your other personal information.</li>
+                  <li>Your password must contain at least 8 characters.</li>
+                  <li>Your password can’t be a commonly used password.</li>
+                  <li>Your password can’t be entirely numeric.</li>
+                </ul>
+              </small>
+            </div>
+
+             
+            <div>
+              <label for="id_password2" class=" requiredField">Password confirmation<span class="asteriskField">*</span></label>
+              <i class="fas fa-lock"></i>
+              <input type="password" name="password2" autocomplete="new-password"
+               class="textinput textInput" required id="id_password2"/>
+                <small id="hint_id_password2" class="form-text text-muted">Enter the same password as before, 
+                  for verification.</small>
+            </div>
+            <button name="submit" class="btn btn-primary">Sign Up</button>
+            <input type="hidden" name="next" value="{% url 'pyIQ:index' %}"/>
+
+            <div class="text_2">
+              Already a member? Kindly <a href="{% url 'users:login' %}">Sign in </a>
+            </div>
+          </form>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  {% endblock content %}
+</body>
+</html>
