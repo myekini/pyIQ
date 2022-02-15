@@ -42,3 +42,17 @@ def index(request):
         questions = Question.objects.all()
         context = {'questions': questions}
         return render(request, 'pyIQ/index.html', context)
+
+
+@login_required
+def add_question(request):
+    """ add quiz questions and options """
+    questions = Question.objects.all()
+    if request.method != 'POST':
+        form = QuestionForm()
+        
+    else:
+        form = QuestionForm(data=request.Post)
+        return HttpResponseRedirect(reverse('pyIQ:index'))
+    context = {'questions': questions, 'form': form}
+    return render(request, 'pyIQ/add_question.html', context)

@@ -7,4 +7,5 @@ app_name = 'pyIQ'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('add_question/', views.add_question, name='add_question'),
 ]

@@ -9,8 +9,9 @@ class Question(models.Model):
     opt_2 = models.CharField(max_length=200, null=True)
     opt_3 = models.CharField(max_length=200, null=True)
     opt_4 = models.CharField(max_length=200, null=True)
+    answer = models.CharField(max_length=200, null=True)
     
     def __str__(self):
         """return string representation of our questions"""
-        return '%s %s %s %s %s' % (self.question, self.opt_1 ,self.opt_2, self.opt_3 ,self.opt_4)
+        return '%s %s %s %s %s %s' % (self.question, self.opt_1 ,self.opt_2, self.opt_3 ,self.opt_4, self.answer)
     
