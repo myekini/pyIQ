@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from pyIQ.models import Question
 from pyIQ.forms import QuestionForm
@@ -47,12 +47,16 @@ def index(request):
 @login_required
 def add_question(request):
     """ add quiz questions and options """
-    questions = Question.objects.all()
-    if request.method != 'POST':
-        form = QuestionForm()
-        
+    if request.user.is_staff:
+        questions = Question.objects.all()
+        if request.method != 'POST':
+            form = QuestionForm()
+        else:
+            form = QuestionForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('pyIQ:index')
+        context = {'questions': questions, 'form': form}
+        return render(request, 'pyIQ/add_question.html', context)
     else:
-        form = QuestionForm(data=request.Post)
-        return HttpResponseRedirect(reverse('pyIQ:index'))
-    context = {'questions': questions, 'form': form}
-    return render(request, 'pyIQ/add_question.html', context)
+        return redirect('pyIQ:index')
