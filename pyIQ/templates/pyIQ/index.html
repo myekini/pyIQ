@@ -7,23 +7,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css"
+    rel="stylesheet"
+    />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+    <!-- MDB -->
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <title>PyIQ</title>
+    <title>Home</title>
 </head>
 <body>
     {% include  'pyIQ/base.html'%}
-    {% block content %}
-    <h3> Welcome to pyIQ  pythonistas
-        <img src="{% static 'images/icons8-hand-black.png'%}"/>
-    </h3>
-    {% for q in questions %}
-    {{ q.question|linebreaks }} 
-    {{ q.opt_1|linebreaks }}
-    {{ q.opt_2|linebreaks }}
-    {{ q.opt_3|linebreaks }}
-    {{ q.opt_4|linebreaks }}
-    {% endfor %}
-    {% endblock content %}
+
+    <div class="container">
+        {% block content %}
+        <h3> Welcome to pyIQ  pythonistas
+            <img src="{% static 'images/icons8-hand-black.png'%}"/>
+        </h3>
+
+        <div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div>
+        <hr style="width:100%;text-align:left;margin-left:0">
+
+        <div class="row col-5">
+            <h4 class="fw-bold text-center mt-3"></h4>
+            {% for q in questions %}
+            <form class="px-4" action="">
+              <p class="fw-bold">{{ q.question|linebreaks }} </p>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="{{ q.question }}" id="radioExample1" />
+                <label class="form-check-label" for="radioExample1">
+                    {{ q.opt_1}}
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="{{ q.question }}" id="radioExample2" />
+                <label class="form-check-label" for="radioExample2">
+                    {{ q.opt_2 }}
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="{{ q.question }}" id="radioExample3" />
+                <label class="form-check-label" for="radioExample3">
+                  {{ q.opt_3 }}
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="{{ q.question }}" id="radioExample3" />
+                <label class="form-check-label" for="radioExample3">
+                    {{ q.opt_4 }}
+                </label>
+              </div>
+            </form>
+        </div>
+        {% endfor %}
+        <input id='timer' type='hidden' name="timer" value="">
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        {% block script %}
+        <script>
+          console.log('hello world')
+          const timer=document.getElementById('displaytimer')
+          console.log(timer.textContent)
+          const inputtag = document.getElementById('timer')
+ 
+          t=0
+          setInterval(()=>{
+            t+=1
+            timer.innerHTML ="<b>Timer: " +t+" seconds</b>"
+            inputtag.value = t
+          },1000)
+        </script>
+        {% endblock script %}
+        {% endblock content %}
+    </div>
 </body>
 </html>
+
+
+
+
