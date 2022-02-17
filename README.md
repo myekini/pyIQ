@@ -1,6 +1,8 @@
 
 # Quiz Application (pyIQ)
+<p align="center">
 <img src="pyIQ/static/images/Screenshot 1.png" style="height:150px; width:px;"/>
+</p>
 
 A python quiz application that test python developers on python programming language skills.with brainteaser question to best prepare them for coding interview. 
 
@@ -14,9 +16,9 @@ A python quiz application that test python developers on python programming lang
 
 ## Screenshots
 <p align="left">
-<img src="pyIQ/static/images/Screenshot 3.png" style="height:100px; width:px;"/>
-<img src="pyIQ/static/images/Screenshot 4.png" style="height:100px; width:px;"/>
-<img src="pyIQ/static/images/Screenshot 6.png" style="height:100px; width:px;"/>
+<img src="pyIQ/static/images/Screenshot 3.png" style="height:150px; width:px;"/>
+<img src="pyIQ/static/images/Screenshot 4.png" style="height:150px; width:px;"/>
+<img src="pyIQ/static/images/Screenshot 6.png" style="height:150px; width:px;"/>
 </p>
 
 
