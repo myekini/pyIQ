@@ -1,6 +1,6 @@
 
 # Quiz Application (pyIQ)
-![Logo](pyIQ/static/images/Screenshot 1.png)
+<img src="pyIQ/static/images/Screenshot 1.png" style="height:150px; width:px;"/>
 
 A python quiz application that test python developers on python programming language skills.with brainteaser question to best prepare them for coding interview. 
 
@@ -10,13 +10,14 @@ A python quiz application that test python developers on python programming lang
 *  Built on Bootstrap 5
 *  Quiz session timing
 
-<img src="portfolio_app/static/images/light-mood.png" style="height:150px; width:px;"/>
+
 
 ## Screenshots
-
-![App Screenshot](pyIQ/static/images/Screenshot 3.png)
-![App Screenshot](pyIQ/static/images/Screenshot 4.png)
-![App Screenshot](pyIQ/static/images/Screenshot 6.png)
+<p align="left">
+<img src="pyIQ/static/images/Screenshot 3.png" style="height:100px; width:px;"/>
+<img src="pyIQ/static/images/Screenshot 4.png" style="height:100px; width:px;"/>
+<img src="pyIQ/static/images/Screenshot 6.png" style="height:100px; width:px;"/>
+</p>
 
 
 ## Technologies used:
