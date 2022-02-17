@@ -15,10 +15,9 @@ A python quiz application that test python developers on python programming lang
 ## Screenshots
 
 ![App Screenshot](pyIQ/static/images/Screenshot 3.png)
-![App Screenshot](pyIQ/static/images/Screenshot 3.png)
-![App Screenshot](pyIQ/static/images/Screenshot 3.png)
-![App Screenshot](pyIQ/static/images/Screenshot 3.png)
-![App Screenshot](pyIQ/static/images/Screenshot 3.png)
+![App Screenshot](pyIQ/static/images/Screenshot 4.png)
+![App Screenshot](pyIQ/static/images/Screenshot 6.png)
+
 
 ## Technologies used:
 * HTML5
