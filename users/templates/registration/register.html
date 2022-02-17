@@ -26,7 +26,7 @@
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
       <!-- first section -->
       <div class="row">
-        <div class="col-7">
+        <div class="col-xs-12 col-md-7">
             <div class="content">
                 <div class="logo">
                   <img src="{% static 'images/My project.png'%}" alt="" width='30' height='30'/>
@@ -39,7 +39,7 @@
             </div>        
         </div>
 
-        <div class="col-5">
+        <div class="col-xs-12 col-md-5">
           <form method="post" action="{% url 'users:register' %}">
             {% csrf_token %}
             <div>
